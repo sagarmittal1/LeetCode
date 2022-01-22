@@ -1,12 +1,12 @@
 class Solution {
 public:
-    void revs(int ind, vector <char> &s) {
-        if(ind >= s.size()/2) return;
-        swap(s[ind], s[s.size()-ind-1]);
-        revs(ind+1, s);
-    }
-public:
     void reverseString(vector<char>& s) {
-        revs(0, s);
+        int l = 0;
+        int r = s.size()-1;
+        while(l < r) {
+            swap(s[l], s[r]);
+            l++;
+            r--;
+        }
     }
 };
