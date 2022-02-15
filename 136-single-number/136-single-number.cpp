@@ -1,16 +1,10 @@
 class Solution {
 public:
     int singleNumber(vector<int>& nums) {
-        unordered_set <int> st;
-        
+        int ans = 0;
         for(auto num : nums) {
-            if(st.find(num) != st.end()) {
-                st.erase(num);
-            }else{
-                st.insert(num);
-            }
+            ans ^= num;
         }
-        
-        return *(st.begin());
+        return ans;
     }
 };
