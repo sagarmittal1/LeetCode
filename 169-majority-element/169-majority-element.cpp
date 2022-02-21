@@ -1,17 +1,16 @@
 class Solution {
 public:
     int majorityElement(vector<int>& nums) {
-        int count = 0;
-        int candidate = 0;
+        int votes = 0, candidate = -1;
         
         for(auto num : nums) {
-            if(count == 0) {
+            if(votes == 0) {
                 candidate = num;
             }
             if(num == candidate) {
-                count++;
+                votes++;
             }else{
-                count--;
+                votes--;
             }
         }
         
