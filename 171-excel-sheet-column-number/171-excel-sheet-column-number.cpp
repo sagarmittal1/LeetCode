@@ -1,10 +1,10 @@
 class Solution {
 public:
-    int titleToNumber(string s) {
+    int titleToNumber(string columnTitle) {
         int ans = 0;
-        int x = 0;
-        for(int i = s.size()-1; i >= 0; i--) {
-            ans += (s[i]-'A'+1)*(pow(26, x++));
+        for(char c : columnTitle) {
+            int col = c-'A'+1;
+            ans = ans*26 + col;
         }
         return ans;
     }
