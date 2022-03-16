@@ -1,14 +1,12 @@
 class Solution {
 public:
     double average(vector<int>& salary) {
-        sort(salary.begin(), salary.end());
-        double tot = 0;
-        
-        for(int i = 1; i < salary.size()-1; i++) {
-            tot += salary[i];
+        int mini = INT_MAX, maxi = INT_MIN, total = 0;
+        for(auto it : salary) {
+            mini = min(mini, it);
+            maxi = max(maxi, it);
+            total += it;
         }
-        
-        double ans = tot/(salary.size()-2);
-        return ans;
+        return ((total-mini-maxi)*1.0)/(salary.size()-2);
     }
 };
