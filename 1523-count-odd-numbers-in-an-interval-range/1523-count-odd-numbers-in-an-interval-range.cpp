@@ -1,9 +1,11 @@
 class Solution {
 public:
     int countOdds(int low, int high) {
-        int total = 0;
-        for(int i = low; i <= high; i++) {
-            if(i%2) total++;
+        int total = (high+1)/2;
+        if(low%2) {
+            total -= (low-1)/2;
+        }else{
+            total -= (low+1)/2;
         }
         return total;
     }
