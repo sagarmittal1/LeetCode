@@ -1,7 +1,7 @@
 class Solution {
 public:
     bool isHappy(int n) {
-        set <int> st;
+        unordered_set <int> st;
         
         while(true) {
             int total = 0;
