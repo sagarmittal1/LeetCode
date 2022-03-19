@@ -1,21 +1,19 @@
 class Solution {
 public:
     bool isHappy(int n) {
-        unordered_set <int> st;
+        unordered_map <int,int> mp;
+        int temp = 0;
         
-        while(true) {
-            int total = 0;
+        while(n != 1) {
             while(n != 0) {
-                total += (n%10)*(n%10);
+                temp += (n%10)*(n%10);
                 n /= 10;
             }
-            if(total == 1) {
-                return 1;
-            }
-            if(st.find(total) != st.end()) return false;
-            st.insert(total);
-            n = total;
+            if(mp[temp] != 0) return false;
+            mp[temp]++;
+            n = temp;
+            temp = 0;
         }
-        return false;
+        return true;
     }
 };
