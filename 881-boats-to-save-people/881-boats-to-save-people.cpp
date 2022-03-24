@@ -2,7 +2,6 @@ class Solution {
 public:
     int numRescueBoats(vector<int>& v, int limit) {
         sort(v.begin(), v.end());
-        reverse(v.begin(), v.end());
         
         int boats = 0;
         int l = 0, r = v.size()-1;
@@ -13,7 +12,7 @@ public:
                 l++; r--;
             }else{
                 boats++;
-                l++;
+                r--;
             }
         }
         return boats;
