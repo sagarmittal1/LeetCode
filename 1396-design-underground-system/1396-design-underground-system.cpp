@@ -1,9 +1,7 @@
 class UndergroundSystem {
 public:
-    unordered_map <int, pair<string, int>> arrivals; 
-    // {id,{stationName, time}}
-    unordered_map <string, pair<int, int>> averages;
-    // {stationName, {time, count}}
+    map <int, pair<string, int>> arrivals;  // {id,{stationName, time}}
+    map <string, pair<int, int>> averages;  // {stationName, {time, count}}
     
     UndergroundSystem() {}
     
@@ -22,7 +20,7 @@ public:
     
     double getAverageTime(string startStation, string endStation) {
         string path = startStation + "_" + endStation;
-        double ans = (averages[path].first * 1.0)/averages[path].second;
+        double ans = (double) averages[path].first / averages[path].second;
         return ans;
     }
 };
