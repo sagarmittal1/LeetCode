@@ -1,7 +1,7 @@
 class UndergroundSystem {
 public:
-    map <int, pair<string, int>> arrivals;  // {id,{stationName, time}}
-    map <string, pair<int, int>> averages;  // {stationName, {time, count}}
+    unordered_map <int, pair<string, int>> arrivals;  // {id,{stationName, time}}
+    unordered_map <string, pair<int, int>> averages;  // {stationName, {time, count}}
     
     UndergroundSystem() {}
     
