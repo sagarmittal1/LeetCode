@@ -3,30 +3,22 @@ public:
     bool backspaceCompare(string s, string t) {
         stack <char> ss, tt;
         
-        for(auto it:s) {
-            if(it == '#') {
-                if(ss.size() != 0) {
-                    ss.pop();
-                } 
+        for(char c : s) {
+            if(c == '#') {
+                if(ss.size()) ss.pop();
             }else{
-                ss.push(it);
+                ss.push(c);
             }
         }
         
-        for(auto it:t) {
-            if(it == '#') {
-                if(tt.size() != 0) {
-                    tt.pop();
-                } 
+        for(char c : t) {
+            if(c == '#') {
+                if(tt.size()) tt.pop();
             }else{
-                tt.push(it);
+                tt.push(c);
             }
         }
         
-        if(ss == tt) {
-            return true;
-        }else{
-            return false;
-        }
+        return ss == tt;
     }
 };
